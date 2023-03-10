@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/3.0.0/aframe/build/aframe-ar-nft.js"></script>
+
     <style>
       .arjs-loader {
         height: 100%;
@@ -23,7 +26,10 @@
         color: white;
       }
     </style>    
+
   </head>
+
+
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded -->
     <div class="arjs-loader">
@@ -39,16 +45,29 @@
       <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
       <a-nft
         type="nft"        
-        url="yorn"
+        url="https://cdn.glitch.global/b0199a65-1193-4f6e-a63c-d3a474a0c166/dinosaur"
         smooth="true"
         smoothCount="10"
         smoothTolerance=".01"
         smoothThreshold="5"
       >
-        <a-box position="80 80 0" scale="70 70 70" color="tomato" wireframe="true" animation="property: rotation; to: 0 360 0; loop: true; dur: 20000" ></a-box>
+        <a-box position="80 80 0" scale="70 70 70" color="tomato" wireframe="true"  wireframe-linewidth=10  animation="property: rotation; to: 0 360 0; loop: true; dur: 20000" ></a-box>
+        </a-entity>
+
+    </a-nft>
+      <a-nft
+        type="nft"        
+        url="https://cdn.glitch.global/b0199a65-1193-4f6e-a63c-d3a474a0c166/meishi"
+        smooth="true"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+      >
+        <a-box position="50 100 0" scale="70 70 70" wireframe="true"></a-box>
       </a-nft>
       <a-entity camera></a-entity>
     </a-scene>
 
   </body>
+
 </html>
