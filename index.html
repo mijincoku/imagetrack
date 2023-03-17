@@ -45,7 +45,7 @@
       <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
       <a-nft
         type="nft"        
-        url="https://cdn.glitch.global/b0199a65-1193-4f6e-a63c-d3a474a0c166/dinosaur"
+        url="yorn/yorn"
         smooth="true"
         smoothCount="10"
         smoothTolerance=".01"
@@ -69,5 +69,16 @@
     </a-scene>
 
   </body>
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const loader = document.querySelector(".arjs-loader");
+      const scene = document.querySelector("a-scene");
+  
+      scene.addEventListener("loaded", function () {
+        loader.style.display = "none";
+      });
+    });
+  </script>
+  
 
 </html>
