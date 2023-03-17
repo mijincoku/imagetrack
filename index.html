@@ -1,5 +1,17 @@
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+ <script>
+  window.addEventListener("DOMContentLoaded", function () {
+    const loader = document.querySelector(".arjs-loader");
+    const scene = document.querySelector("a-scene");
+
+    scene.addEventListener("loaded", function () {
+      loader.style.display = "none";
+    });
+  });
+</script> 
+
+
 
 <style>
   .arjs-loader {
@@ -52,13 +64,3 @@
     <a-entity camera></a-entity>
   </a-scene>
 </body>
-<!-- <script>
-  window.addEventListener("DOMContentLoaded", function () {
-    const loader = document.querySelector(".arjs-loader");
-    const scene = document.querySelector("a-scene");
-
-    scene.addEventListener("loaded", function () {
-      loader.style.display = "none";
-    });
-  });
-</script> -->
