@@ -27,48 +27,6 @@
       }
     </style>    
 
-<script>
-  AFRAME.registerComponent('gps-arrow', {
-    schema: {
-      targetLatitude: {type: 'number', default: 0},
-      targetLongitude: {type: 'number', default: 0},
-    },
-
-    init: function () {
-      this.updateRotation = this.updateRotation.bind(this);
-    },
-
-    tick: function () {
-      if (window.DeviceOrientationEvent) {
-        window.removeEventListener('deviceorientation', this.updateRotation);
-        window.addEventListener('deviceorientation', this.updateRotation);
-      }
-    },
-
-    updateRotation: function (event) {
-      const heading = this.calculateHeading(event);
-      const arrowRotation = this.calculateArrowRotation(heading);
-      this.el.setAttribute('rotation', {x: 0, y: arrowRotation, z: 0});
-    },
-
-    calculateHeading: function (event) {
-      const alpha = event.alpha;
-      const compassHeading = alpha;
-
-      return compassHeading;
-    },
-
-    calculateArrowRotation: function (heading) {
-      const targetLatLng = new AFRAME.THREE.Vector2(this.data.targetLatitude, this.data.targetLongitude);
-      const currentLatLng = new AFRAME.THREE.Vector2(this.el.sceneEl.components['gps-camera'].coords.latitude, this.el.sceneEl.components['gps-camera'].coords.longitude);
-      const direction = targetLatLng.sub(currentLatLng).normalize();
-      const angle = Math.atan2(direction.y, direction.x) * 180 / Math.PI;
-
-      return angle - heading;
-    },
-  });
-</script>
-
   </head>
 
 
@@ -87,30 +45,18 @@
      <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
       <a-nft
         type="nft"        
-        url="https://cdn.glitch.global/24c94111-7a50-4163-a9e1-9d6d366b5663/mura"
+        url="https://cdn.glitch.global/24c94111-7a50-4163-a9e1-9d6d366b5663/hyoshiki-imege"
         smooth="true"
         smoothCount="10"
         smoothTolerance=".01"
         smoothThreshold="5"
       >
         <!-- <a-box position="80 80 0" scale="70 70 70" color="tomato" wireframe="true"  wireframe-linewidth=10  animation="property: rotation; to: 0 360 0; loop: true; dur: 20000" ></a-box> -->
-        <!-- <a-image
+        <a-image
         src="MJ.png"
         position="100 200 0" 
         scale="400 400 400"
-        ></a-image> -->
-        <a-entity
-        gps-arrow="targetLatitude: 24.339705209937666; targetLongitude: 124.15774367997264;"
-        position="0 0.5 0"
-      >
-        <a-triangle
-          material="color: red;"
-          scale="0.5 0.5 0.5"
-          vertex-a="-1 0 0"
-          vertex-b="1 0 0"
-          vertex-c="0 2 0"
-        ></a-triangle>
-      </a-entity>
+        ></a-image>
 
     </a-nft>
       <!-- <a-nft
